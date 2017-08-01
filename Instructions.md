@@ -34,3 +34,9 @@
  ```
  & "C:\Program Files\UE_4.16\Engine\Binaries\Win64\UE4Editor.exe" "C:\...\Puzzler\Puzzler.uproject" 192.168.1.90 -game -log
  ```
+
+## Detecting Where The Code is Running
+
+1. Create a StaticMesh actor.
+2. Add movement logic (including mobility)
+3. Only run with authority.
