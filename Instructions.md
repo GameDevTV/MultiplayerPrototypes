@@ -53,3 +53,9 @@
 1. Explain symbols, headers and linkers
 2. How modules are just a DLL system.
 2. Remove by process of elimination.
+
+## Revision: Adding Vectors and Normalisation
+
+1. Editable widget.
+2. Revision of Vectors.
+3. Direction and normalisation challenge.

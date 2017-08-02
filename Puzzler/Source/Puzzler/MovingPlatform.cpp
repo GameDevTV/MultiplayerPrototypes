@@ -22,6 +22,8 @@ void AMovingPlatform::BeginPlay()
 		SetReplicates(true); // Note the error if called on the server.
 		SetReplicateMovement(true); // Note we don't get movement replication by default.
 	}
+
+	GlobalStartPoint = GetActorLocation();
 }
 
 // Called every frame
@@ -32,8 +34,10 @@ void AMovingPlatform::Tick(float DeltaTime)
 	//if (!HasAuthority()) // Challenge: try on client, note how it doesn't replicate to the server.
 	if(HasAuthority())
 	{
-		auto Location = GetActorLocation();
-		Location += FVector(DeltaTime * Speed, 0, 0);
+		FVector Location = GetActorLocation();
+		FVector GlobalEndPoint = GetTransform().TransformPosition(EndPoint);
+		FVector Direction = (GlobalEndPoint - GlobalStartPoint).GetSafeNormal();
+		Location += Direction * Speed * DeltaTime;
 		SetActorLocation(Location);
 	}
 }
