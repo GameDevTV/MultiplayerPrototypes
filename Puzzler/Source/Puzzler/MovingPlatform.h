@@ -30,5 +30,8 @@ public:
 	FVector EndPoint;
 
 private:
-	FVector GlobalStartPoint;
+	FVector CurrentStartPoint;
+	FVector CurrentEndPoint;
+
+	FVector GetDirection();
 };

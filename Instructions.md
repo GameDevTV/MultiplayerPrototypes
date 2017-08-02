@@ -59,3 +59,9 @@
 1. Editable widget.
 2. Revision of Vectors.
 3. Direction and normalisation challenge.
+
+## Revision: Vector Dot Products
+
+1. What is a dot product.
+2. Create the scheme.
+3. Implement and factor.

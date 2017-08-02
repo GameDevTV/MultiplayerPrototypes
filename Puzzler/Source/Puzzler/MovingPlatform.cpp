@@ -23,7 +23,8 @@ void AMovingPlatform::BeginPlay()
 		SetReplicateMovement(true); // Note we don't get movement replication by default.
 	}
 
-	GlobalStartPoint = GetActorLocation();
+	CurrentStartPoint = GetActorLocation();
+	CurrentEndPoint = GetTransform().TransformPosition(EndPoint);
 }
 
 // Called every frame
@@ -35,10 +36,20 @@ void AMovingPlatform::Tick(float DeltaTime)
 	if(HasAuthority())
 	{
 		FVector Location = GetActorLocation();
-		FVector GlobalEndPoint = GetTransform().TransformPosition(EndPoint);
-		FVector Direction = (GlobalEndPoint - GlobalStartPoint).GetSafeNormal();
-		Location += Direction * Speed * DeltaTime;
+		FVector CurrentLocationToEndPoint = CurrentEndPoint - Location;
+		float DistanceRemaining = FVector::DotProduct(CurrentLocationToEndPoint, GetDirection());
+		if (DistanceRemaining < 0) {
+			auto ToSwap = CurrentEndPoint;
+			CurrentEndPoint = CurrentStartPoint;
+			CurrentStartPoint = ToSwap;
+		}
+
+		Location += GetDirection() * Speed * DeltaTime;
 		SetActorLocation(Location);
 	}
 }
 
+FVector AMovingPlatform::GetDirection()
+{
+	return (CurrentEndPoint - CurrentStartPoint).GetSafeNormal();
+}
