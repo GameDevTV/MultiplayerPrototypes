@@ -47,3 +47,9 @@
 1. Enable replication of movement.
 2. Notice what happens when we only make change to client.
 3. Explain the behaviour when client stands on the platform.
+
+## Aside: Faster Build Times
+
+1. Explain symbols, headers and linkers
+2. How modules are just a DLL system.
+2. Remove by process of elimination.
