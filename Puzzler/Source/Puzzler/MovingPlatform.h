@@ -29,9 +29,15 @@ public:
 	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
 	FVector EndPoint;
 
+	void AddActiveSwitch();
+	void RemoveActiveSwitch();
+
 private:
 	FVector CurrentStartPoint;
 	FVector CurrentEndPoint;
 
 	FVector GetDirection();
+
+	UPROPERTY(EditAnywhere)
+	int ActiveSwitches = 1;
 };

@@ -86,3 +86,10 @@
 
 1. Show one trigger.
 2. Challenge the other.
+
+## Activating Platforms from Triggers
+
+1. Overview the desired behaviour
+1. Create an activation int.
+3. Create TArray for platforms.
+4. For loop on trigger.

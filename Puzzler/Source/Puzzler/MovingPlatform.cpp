@@ -31,6 +31,8 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
+	if (ActiveSwitches < 1) return;
 
 	//if (!HasAuthority()) // Challenge: try on client, note how it doesn't replicate to the server.
 	if(HasAuthority())
@@ -48,6 +50,20 @@ void AMovingPlatform::Tick(float DeltaTime)
 		SetActorLocation(Location);
 	}
 }
+
+void AMovingPlatform::AddActiveSwitch()
+{
+	ActiveSwitches++;
+}
+
+void AMovingPlatform::RemoveActiveSwitch()
+{
+	ActiveSwitches--;
+	if (ActiveSwitches < 0) {
+		ActiveSwitches = 0;
+	}
+}
+
 
 FVector AMovingPlatform::GetDirection()
 {

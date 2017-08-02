@@ -3,6 +3,8 @@
 #include "PlatformTrigger.h"
 #include "Components/BoxComponent.h"
 
+#include "MovingPlatform.h"
+
 // Sets default values
 APlatformTrigger::APlatformTrigger()
 {
@@ -19,15 +21,23 @@ APlatformTrigger::APlatformTrigger()
 void APlatformTrigger::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	for (AMovingPlatform* Platform : TargetPlatforms) {
+		Platform->RemoveActiveSwitch();
+	}
 }
 
 void APlatformTrigger::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Activate"));
+	for (AMovingPlatform* Platform : TargetPlatforms) {
+		Platform->AddActiveSwitch();
+	}
 }
 
 void APlatformTrigger::OnEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Deactivate"));
+	for (AMovingPlatform* Platform : TargetPlatforms) {
+		Platform->RemoveActiveSwitch();
+	}
+
 }
