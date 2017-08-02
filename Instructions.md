@@ -40,3 +40,10 @@
 1. Create a StaticMesh actor.
 2. Add movement logic (including mobility)
 3. Only run with authority.
+
+## Authority and Replication
+
+1. Explain the authority and replication model.
+1. Enable replication of movement.
+2. Notice what happens when we only make change to client.
+3. Explain the behaviour when client stands on the platform.

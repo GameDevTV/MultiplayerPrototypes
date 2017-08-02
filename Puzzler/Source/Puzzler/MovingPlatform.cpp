@@ -16,7 +16,12 @@ AMovingPlatform::AMovingPlatform()
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	if (HasAuthority())
+	{
+		SetReplicates(true); // Note the error if called on the server.
+		SetReplicateMovement(true); // Note we don't get movement replication by default.
+	}
 }
 
 // Called every frame
@@ -24,7 +29,9 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (HasAuthority()) {
+	//if (!HasAuthority()) // Challenge: try on client, note how it doesn't replicate to the server.
+	if(HasAuthority())
+	{
 		auto Location = GetActorLocation();
 		Location += FVector(DeltaTime * Speed, 0, 0);
 		SetActorLocation(Location);
