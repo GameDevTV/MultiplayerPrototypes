@@ -75,3 +75,9 @@
 
  ![](Images/2017-08-02_15-40-26.png)
 
+## Setup a Platform Trigger
+
+1. Create the C++ base
+2. Add box component.
+3. Tweak in BP child.
+4. Place in the world.
