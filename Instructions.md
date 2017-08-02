@@ -81,3 +81,8 @@
 2. Add box component.
 3. Tweak in BP child.
 4. Place in the world.
+
+## Enable Triggering Callbacks
+
+1. Show one trigger.
+2. Challenge the other.
