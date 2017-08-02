@@ -65,3 +65,13 @@
 1. What is a dot product.
 2. Create the scheme.
 3. Implement and factor.
+
+## Creating a Simple Platform Puzzle
+
+1. Better level layout.
+
+ ![](Images/2017-08-02_15-41-42.png)
+2. Tweak the jumping movement.
+
+ ![](Images/2017-08-02_15-40-26.png)
+
