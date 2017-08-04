@@ -102,3 +102,10 @@
 2. If not working, restart the editor.
 3. Investigate difference between init and constructor.
 4. Answer: Init not in editor.
+
+## Accessing UI Classes in C++
+
+1. Create a widget.
+2. Reference the class in Constructor.
+3. Include `UMG` module. Must rebuild VS proj.
+3. Ensure we have the right class in init.

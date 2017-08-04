@@ -19,5 +19,9 @@ public:
 	UPuzzlerGameInstance();
 
 	virtual void Init() override;
+
+private:
+	UPROPERTY()
+	UClass *MenuClass;
 	
 };

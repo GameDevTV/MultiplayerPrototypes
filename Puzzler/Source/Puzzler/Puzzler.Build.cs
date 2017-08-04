@@ -8,6 +8,6 @@ public class Puzzler : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "UMG" });
 	}
 }
