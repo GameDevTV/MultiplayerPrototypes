@@ -23,5 +23,19 @@ void UPuzzlerGameInstance::LoadMainMenu()
 	if (!ensure(Menu != nullptr)) return;
 
 	Menu->AddToViewport();
-	//from step 3: UE_LOG(LogTemp, Warning, TEXT("Loading has menu class %s"), *MenuClass->GetFName().ToString());
+	
+	// Step 0 get player controller.
+	auto PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	// Step 2 intellisense which mode options there are.
+	FInputModeUIOnly InputModeData;
+	// Step 3 which configure options:
+	InputModeData.SetLockMouseToViewport(false);
+	InputModeData.SetWidgetToFocus(Menu->TakeWidget()); //Because UMG wraps Slate
+	// Step 1 what to give input mode:
+	PlayerController->SetInputMode(InputModeData);
+
+	// Step 4 enable cursor:
+	PlayerController->bShowMouseCursor = true;
 }

@@ -117,3 +117,8 @@
  ![](Images/2017-08-04_14-16-33.png)
 3. Print the string.
 4. Create and attach to viewports
+
+## Changing Input Modes in C++
+
+(Steps shown in code.)
+
