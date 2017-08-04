@@ -145,3 +145,7 @@
 
  ![](Images/2017-08-04_18-57-42.png)
 
+## Calling C++ Functions from UMG Buttons
+
+1. Add initializer.
+2. Add callback.
