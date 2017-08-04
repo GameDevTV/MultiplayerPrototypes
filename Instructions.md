@@ -133,3 +133,15 @@
 4. Challenge for UI creation, eventual solution:
 
  ![](Images/2017-08-04_18-43-28.png)
+
+## Connecting UMG to C++
+
+1. Create a `UUserWidget` C++ class.
+2. Add bind widget.
+2. Reparent the BP.
+
+ ![](Images/2017-08-04_18-54-14.png)
+3. Check errors.
+
+ ![](Images/2017-08-04_18-57-42.png)
+
