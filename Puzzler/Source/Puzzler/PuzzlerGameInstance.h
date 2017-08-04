@@ -23,6 +23,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void LoadMainMenu();
 
+	void HostServer();
+
 private:
 	UPROPERTY()
 	UClass *MenuClass;

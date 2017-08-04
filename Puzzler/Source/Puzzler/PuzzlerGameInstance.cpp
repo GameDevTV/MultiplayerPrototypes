@@ -39,3 +39,9 @@ void UPuzzlerGameInstance::LoadMainMenu()
 	// Step 4 enable cursor:
 	PlayerController->bShowMouseCursor = true;
 }
+
+void UPuzzlerGameInstance::HostServer()
+{
+	// Note: the listen is important.
+	GetWorld()->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
+}

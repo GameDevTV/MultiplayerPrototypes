@@ -149,3 +149,10 @@
 
 1. Add initializer.
 2. Add callback.
+
+## Hosting with ServerTravel()
+
+1. Explain basic concept of travel: all focused around maps and gamemodes.
+1. Get the game instance.
+2. Call a host server function.
+3. `ServerTravel` to correct map.

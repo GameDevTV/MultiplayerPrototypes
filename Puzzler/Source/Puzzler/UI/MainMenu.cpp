@@ -2,6 +2,7 @@
 
 #include "MainMenu.h"
 #include "Components/Button.h"
+#include "../PuzzlerGameInstance.h"
 
 
 bool UMainMenu::Initialize()
@@ -17,5 +18,10 @@ bool UMainMenu::Initialize()
 
 void UMainMenu::HostServerPressed()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Host Server!"));
+	auto World = GetWorld();
+	if (!ensure(World != nullptr)) return;
+
+	auto GameInstance = Cast<UPuzzlerGameInstance>(World->GetGameInstance());
+
+	GameInstance->HostServer();
 }
