@@ -109,3 +109,11 @@
 2. Reference the class in Constructor.
 3. Include `UMG` module. Must rebuild VS proj.
 3. Ensure we have the right class in init.
+
+## Load and Display UI in C++
+
+1. Create a `UFUNCTION` on the GI.
+2. Call it from the level BP for now.
+ ![](Images/2017-08-04_14-16-33.png)
+3. Print the string.
+4. Create and attach to viewports

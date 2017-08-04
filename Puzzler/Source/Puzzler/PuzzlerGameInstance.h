@@ -20,6 +20,9 @@ public:
 
 	virtual void Init() override;
 
+	UFUNCTION(BlueprintCallable)
+	void LoadMainMenu();
+
 private:
 	UPROPERTY()
 	UClass *MenuClass;

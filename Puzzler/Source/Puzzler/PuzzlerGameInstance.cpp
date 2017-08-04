@@ -13,6 +13,15 @@ UPuzzlerGameInstance::UPuzzlerGameInstance()
 void UPuzzlerGameInstance::Init()
 {
 	Super::Init();
+}
+
+void UPuzzlerGameInstance::LoadMainMenu()
+{
 	if (!ensure(MenuClass != nullptr)) return;
-	UE_LOG(LogTemp, Warning, TEXT("GameInstance has menu class %s"), *MenuClass->GetFName().ToString());
+
+	auto Menu = CreateWidget<UUserWidget>(this, MenuClass);
+	if (!ensure(Menu != nullptr)) return;
+
+	Menu->AddToViewport();
+	//from step 3: UE_LOG(LogTemp, Warning, TEXT("Loading has menu class %s"), *MenuClass->GetFName().ToString());
 }
