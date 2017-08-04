@@ -93,3 +93,12 @@
 1. Create an activation int.
 3. Create TArray for platforms.
 4. For loop on trigger.
+
+## When to use a GameInstance
+
+1. Create derived class.
+2. Set as game instance for project.
+ ![](Images/2017-08-04_13-33-52.png)
+2. If not working, restart the editor.
+3. Investigate difference between init and constructor.
+4. Answer: Init not in editor.
