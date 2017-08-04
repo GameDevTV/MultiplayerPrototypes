@@ -122,3 +122,14 @@
 
 (Steps shown in code.)
 
+## Advanced UMG layout
+
+1. What we want to achieve
+
+ ![](Images/2017-08-04_18-46-05.png)
+1. Using vertical boxes (and containers generally)
+2. Size boxes for auto padding.
+3. Create menu level.
+4. Challenge for UI creation, eventual solution:
+
+ ![](Images/2017-08-04_18-43-28.png)
