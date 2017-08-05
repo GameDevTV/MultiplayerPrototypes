@@ -21,6 +21,8 @@ private:
 	class UButton* JoinServerButton;
 	UPROPERTY(meta = (BindWidget))
 	class UButton* HostServerButton;
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* ErrorMessage;
 
 	UFUNCTION()
 	void JoinServerPressed();

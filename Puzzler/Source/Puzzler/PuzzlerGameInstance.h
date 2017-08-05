@@ -29,6 +29,8 @@ public:
 
 	void HostServer();
 
+	FString GetErrorMessage();
+
 private:
 	UPROPERTY()
 	TSubclassOf<class UUserWidget> MenuClass;
@@ -40,4 +42,5 @@ private:
 	void ShowMenu();
 	void HideMenu();
 	
+	FString ErrorMessage = "";
 };

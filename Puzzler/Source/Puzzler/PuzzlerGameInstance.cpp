@@ -55,6 +55,10 @@ void UPuzzlerGameInstance::HostServer()
 	HideMenu();
 }
 
+FString UPuzzlerGameInstance::GetErrorMessage()
+{
+	return ErrorMessage; //To test use some other string
+}
 
 void UPuzzlerGameInstance::ShowMenu()
 {

@@ -187,3 +187,9 @@
 2. Call from there.
 3. Set default game map.
 3. Open two games to test.
+
+## Displaying Error Messages
+
+1. Text block in menu
+2. Create error getter in GI.
+3. Set the text in the textblock.
