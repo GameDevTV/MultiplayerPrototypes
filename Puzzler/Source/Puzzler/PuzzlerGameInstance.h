@@ -25,6 +25,8 @@ public:
 
 	void LoadJoinServerMenu();
 
+	void JoinServer(FString Address);
+
 	void HostServer();
 
 private:

@@ -37,6 +37,16 @@ void UPuzzlerGameInstance::LoadJoinServerMenu()
 	ShowMenu();
 }
 
+void UPuzzlerGameInstance::JoinServer(FString Address)
+{
+	auto PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	// Absolute means use all address.
+	PlayerController->ClientTravel(Address, TRAVEL_Absolute);
+	HideMenu();
+}
+
 void UPuzzlerGameInstance::HostServer()
 {
 	// Note: the listen is important.

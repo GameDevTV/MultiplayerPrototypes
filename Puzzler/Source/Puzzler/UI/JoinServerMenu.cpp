@@ -4,6 +4,8 @@
 #include "Components/Button.h"
 #include "Components/EditableTextBox.h"
 
+#include "../PuzzlerGameInstance.h"
+
 bool UJoinServerMenu::Initialize()
 {
 	bool Success = Super::Initialize();
@@ -20,5 +22,11 @@ void UJoinServerMenu::JoinPressed()
 	if (!ensure(ServerIPField != nullptr)) return;
 
 	FString IpAddress = ServerIPField->Text.ToString();
-	UE_LOG(LogTemp, Warning, TEXT("Server IP entered: %s"), *IpAddress);
+
+	auto World = GetWorld();
+	if (!ensure(World != nullptr)) return;
+
+	auto GameInstance = Cast<UPuzzlerGameInstance>(World->GetGameInstance());
+
+	GameInstance->JoinServer(IpAddress);
 }

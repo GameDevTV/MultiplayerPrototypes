@@ -179,3 +179,11 @@
 1. Create parent class for the menu.
 2. Reparent.
 3. Print out the text field.
+
+## Joining a Server with `ClientTravel()`
+
+1. What is ClientTravel.
+1. Expose public function from GI.
+2. Call from there.
+3. Set default game map.
+3. Open two games to test.
