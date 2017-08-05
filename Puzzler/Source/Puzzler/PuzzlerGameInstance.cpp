@@ -19,10 +19,10 @@ void UPuzzlerGameInstance::LoadMainMenu()
 {
 	if (!ensure(MenuClass != nullptr)) return;
 
-	auto Menu = CreateWidget<UUserWidget>(this, MenuClass);
-	if (!ensure(Menu != nullptr)) return;
+	CurrentlyActiveMenu = CreateWidget<UUserWidget>(this, MenuClass);
+	if (!ensure(CurrentlyActiveMenu != nullptr)) return;
 
-	Menu->AddToViewport();
+	CurrentlyActiveMenu->AddToViewport();
 	
 	// Step 0 get player controller.
 	auto PlayerController = GetFirstLocalPlayerController();
@@ -32,7 +32,7 @@ void UPuzzlerGameInstance::LoadMainMenu()
 	FInputModeUIOnly InputModeData;
 	// Step 3 which configure options:
 	InputModeData.SetLockMouseToViewport(false);
-	InputModeData.SetWidgetToFocus(Menu->TakeWidget()); //Because UMG wraps Slate
+	InputModeData.SetWidgetToFocus(CurrentlyActiveMenu->TakeWidget()); //Because UMG wraps Slate
 	// Step 1 what to give input mode:
 	PlayerController->SetInputMode(InputModeData);
 
@@ -44,4 +44,21 @@ void UPuzzlerGameInstance::HostServer()
 {
 	// Note: the listen is important.
 	GetWorld()->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
+
+	HideMenu();
+}
+
+void UPuzzlerGameInstance::HideMenu()
+{
+	if (!ensure(CurrentlyActiveMenu != nullptr)) return;
+
+	CurrentlyActiveMenu->RemoveFromViewport();
+
+	auto PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	FInputModeGameOnly InputModeData;
+	PlayerController->SetInputMode(InputModeData);
+
+	PlayerController->bShowMouseCursor = false;
 }

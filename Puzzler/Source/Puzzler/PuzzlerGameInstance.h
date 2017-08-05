@@ -28,5 +28,9 @@ public:
 private:
 	UPROPERTY()
 	UClass *MenuClass;
+
+	class UUserWidget* CurrentlyActiveMenu;
+
+	void HideMenu();
 	
 };

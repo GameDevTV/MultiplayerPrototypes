@@ -156,3 +156,9 @@
 1. Get the game instance.
 2. Call a host server function.
 3. `ServerTravel` to correct map.
+
+## Disabling the Menu
+
+1. Keep track of current menu.
+2. Invert steps.
+9. Don't forget to not load on new level.
