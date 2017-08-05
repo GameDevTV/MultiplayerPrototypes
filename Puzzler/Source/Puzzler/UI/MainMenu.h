@@ -18,8 +18,13 @@ class PUZZLER_API UMainMenu : public UUserWidget
 
 private:
 	UPROPERTY(meta = (BindWidget))
-	class UButton* HostServer;
-	
+	class UButton* JoinServerButton;
+	UPROPERTY(meta = (BindWidget))
+	class UButton* HostServerButton;
+
+	UFUNCTION()
+	void JoinServerPressed();
+
 	UFUNCTION()
 	void HostServerPressed();
 };

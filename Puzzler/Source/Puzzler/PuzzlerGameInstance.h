@@ -23,14 +23,19 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void LoadMainMenu();
 
+	void LoadJoinServerMenu();
+
 	void HostServer();
 
 private:
 	UPROPERTY()
-	UClass *MenuClass;
+	TSubclassOf<class UUserWidget> MenuClass;
+	UPROPERTY()
+	TSubclassOf<class UUserWidget> JoinMenuClass;
 
 	class UUserWidget* CurrentlyActiveMenu;
 
+	void ShowMenu();
 	void HideMenu();
 	
 };

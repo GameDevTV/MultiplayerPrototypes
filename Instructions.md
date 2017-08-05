@@ -162,3 +162,12 @@
 1. Keep track of current menu.
 2. Invert steps.
 9. Don't forget to not load on new level.
+
+## Navigating to Submenus
+
+1. Join server button and callback.
+2. Load join server menu function on GI.
+3. Factor out `ShowMenu` and `HideMenu`.
+4. Create a Join menu class like this:
+
+ ![](Images/2017-08-05_09-32-39.png)

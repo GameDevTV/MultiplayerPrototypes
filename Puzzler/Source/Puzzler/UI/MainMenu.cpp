@@ -10,10 +10,23 @@ bool UMainMenu::Initialize()
 	bool Success = Super::Initialize();
 	if (!Success) return false;
 
-	if (!ensure(HostServer != nullptr)) return false;
-	HostServer->OnClicked.AddDynamic(this, &UMainMenu::HostServerPressed);
+	if (!ensure(JoinServerButton != nullptr)) return false;
+	JoinServerButton->OnClicked.AddDynamic(this, &UMainMenu::JoinServerPressed);
+
+	if (!ensure(HostServerButton != nullptr)) return false;
+	HostServerButton->OnClicked.AddDynamic(this, &UMainMenu::HostServerPressed);
 
 	return true;
+}
+
+void UMainMenu::JoinServerPressed()
+{
+	auto World = GetWorld();
+	if (!ensure(World != nullptr)) return;
+
+	auto GameInstance = Cast<UPuzzlerGameInstance>(World->GetGameInstance());
+
+	GameInstance->LoadJoinServerMenu();
 }
 
 void UMainMenu::HostServerPressed()
