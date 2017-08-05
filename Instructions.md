@@ -150,7 +150,7 @@
 1. Add initializer.
 2. Add callback.
 
-## Hosting with ServerTravel()
+## Hosting with `ServerTravel()`
 
 1. Explain basic concept of travel: all focused around maps and gamemodes.
 1. Get the game instance.
@@ -171,3 +171,11 @@
 4. Create a Join menu class like this:
 
  ![](Images/2017-08-05_09-32-39.png)
+5. NB: Use an editable text box and scale the font.
+
+## Accessing Text Properties
+
+1. How to access from a text property.
+1. Create parent class for the menu.
+2. Reparent.
+3. Print out the text field.
