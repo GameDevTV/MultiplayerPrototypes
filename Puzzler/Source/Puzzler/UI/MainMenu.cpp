@@ -18,14 +18,16 @@ bool UMainMenu::Initialize()
 	if (!ensure(HostServerButton != nullptr)) return false;
 	HostServerButton->OnClicked.AddDynamic(this, &UMainMenu::HostServerPressed);
 
+
 	auto World = GetWorld();
 	if (!ensure(World != nullptr)) return false;
 
 	auto GameInstance = Cast<UPuzzlerGameInstance>(World->GetGameInstance());
-	if (!ensure(GameInstance != nullptr)) return false;
-
-	if (!ensure(ErrorMessage != nullptr)) return false;
-	ErrorMessage->SetText(FText::FromString(GameInstance->GetErrorMessage()));
+	if (GameInstance != nullptr)
+	{
+		if (!ensure(ErrorMessage != nullptr)) return false;
+		ErrorMessage->SetText(FText::FromString(GameInstance->GetErrorMessage()));
+	}
 
 	return true;
 }

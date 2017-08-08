@@ -14,7 +14,8 @@ class PUZZLER_API UMainMenu : public UUserWidget
 {
 	GENERATED_BODY()
 
-	bool Initialize();
+protected:
+	virtual bool Initialize() override;
 
 private:
 	UPROPERTY(meta = (BindWidget))

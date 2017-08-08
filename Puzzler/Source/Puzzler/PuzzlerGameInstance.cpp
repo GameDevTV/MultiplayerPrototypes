@@ -3,6 +3,7 @@
 #include "PuzzlerGameInstance.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
+#include "Engine/Engine.h"
 
 UPuzzlerGameInstance::UPuzzlerGameInstance()
 {
@@ -16,6 +17,11 @@ UPuzzlerGameInstance::UPuzzlerGameInstance()
 void UPuzzlerGameInstance::Init()
 {
 	Super::Init();
+
+	auto Engine = GetEngine();
+	if (!ensure(Engine != nullptr)) return;
+
+	Engine->OnTravelFailure().AddUObject(this, &UPuzzlerGameInstance::HandleTravelError);
 }
 
 void UPuzzlerGameInstance::LoadMainMenu()
@@ -95,4 +101,10 @@ void UPuzzlerGameInstance::HideMenu()
 	PlayerController->SetInputMode(InputModeData);
 
 	PlayerController->bShowMouseCursor = false;
+}
+
+void UPuzzlerGameInstance::HandleTravelError(UWorld* World, ETravelFailure::Type TravelFailure, const FString& Message)
+{
+	ErrorMessage = "An error occurred: " + Message;
+	LoadMainMenu();
 }

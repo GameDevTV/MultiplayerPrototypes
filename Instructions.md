@@ -193,3 +193,8 @@
 1. Text block in menu
 2. Create error getter in GI.
 3. Set the text in the textblock.
+
+## Intercepting Travel Errors
+
+1. Listening delegate.
+2. Hook up to the UI.
