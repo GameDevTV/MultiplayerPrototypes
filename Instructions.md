@@ -198,3 +198,10 @@
 
 1. Listening delegate.
 2. Hook up to the UI.
+
+## Level Loading Screens
+
+1. Enable the MoviePlayer
+2. Hook into premapload callback
+3. Loading screen setup call.
+4. Creating the default loading widget.

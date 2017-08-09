@@ -43,6 +43,7 @@ private:
 	void HideMenu();
 	
 	void HandleTravelError(UWorld* World, ETravelFailure::Type TravelFailure, const FString& Message);
+	void BeginLoadingScreen(const FString& MapName);
 
 	FString ErrorMessage = "";
 };

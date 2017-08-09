@@ -4,6 +4,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/Engine.h"
+#include "MoviePlayer.h"
 
 UPuzzlerGameInstance::UPuzzlerGameInstance()
 {
@@ -22,6 +23,7 @@ void UPuzzlerGameInstance::Init()
 	if (!ensure(Engine != nullptr)) return;
 
 	Engine->OnTravelFailure().AddUObject(this, &UPuzzlerGameInstance::HandleTravelError);
+	FCoreUObjectDelegates::PreLoadMap.AddUObject(this, &UPuzzlerGameInstance::BeginLoadingScreen);
 }
 
 void UPuzzlerGameInstance::LoadMainMenu()
@@ -107,4 +109,16 @@ void UPuzzlerGameInstance::HandleTravelError(UWorld* World, ETravelFailure::Type
 {
 	ErrorMessage = "An error occurred: " + Message;
 	LoadMainMenu();
+}
+
+void UPuzzlerGameInstance::BeginLoadingScreen(const FString& MapName)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Showing loading screen"));
+
+	FLoadingScreenAttributes LoadingScreen;
+	LoadingScreen.bAutoCompleteWhenLoadingCompletes = false;
+	LoadingScreen.MinimumLoadingScreenDisplayTime = 2;
+	LoadingScreen.WidgetLoadingScreen = FLoadingScreenAttributes::NewTestLoadingScreenWidget();
+
+	GetMoviePlayer()->SetupLoadingScreen(LoadingScreen);
 }
