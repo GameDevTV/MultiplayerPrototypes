@@ -58,7 +58,7 @@ void UPuzzlerGameInstance::JoinServer(FString Address)
 void UPuzzlerGameInstance::HostServer()
 {
 	// Note: the listen is important.
-	GetWorld()->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
+	GetWorld()->ServerTravel("/Game/Maps/MainPuzzle?listen");
 
 	HideMenu();
 }
