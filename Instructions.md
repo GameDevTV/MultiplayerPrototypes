@@ -205,3 +205,14 @@
 2. Hook into premapload callback
 3. Loading screen setup call.
 4. Creating the default loading widget.
+
+## Retargeting Characters
+
+1. Set the skeleton retargeting on both skeletons
+2. Retarget from the blueprint by making a copy.
+
+## Build a Beautiful Level
+
+1. Start with an outline
+2. Look at the reference level for how things are meant to go together.
+3. Build a level.
